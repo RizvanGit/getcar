@@ -1,21 +1,22 @@
 "use client";
 import { FC } from "react";
-import Image from "next/image";
 import { ICustomButtonProps } from "@/types";
 
 const CustomButton: FC<ICustomButtonProps> = ({
   title,
   containerStyles,
   handleClick,
+  titleStyles,
+  btnType,
 }) => {
   return (
     <button
+      type={btnType || "button"}
       disabled={false}
-      type="button"
       className={`custom-btn ${containerStyles}`}
       onClick={handleClick}
     >
-      <span className={`flex-1`}>{title}</span>
+      <span className={`flex-1 ${titleStyles}`}>{title}</span>
     </button>
   );
 };

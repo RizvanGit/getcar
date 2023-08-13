@@ -36,10 +36,10 @@
   @apply flex flex-row relative justify-center items-center py-3 px-6 outline-none;
 }
 .custom-btn:hover {
-  @apply brightness-110;
+  @apply brightness-105;
 }
 .custom-btn:active {
-  @apply brightness-90;
+  @apply brightness-95;
 }
 /* END: General styles */
 
