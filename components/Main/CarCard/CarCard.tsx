@@ -2,7 +2,7 @@
 import { FC, useState } from "react";
 import Image from "next/image";
 
-import { CustomButton } from "@/components";
+import { CarDetails, CustomButton } from "@/components";
 import { calculateCarRent } from "@/utils";
 import { ICarProps } from "@/types";
 
@@ -72,6 +72,11 @@ const CarCard: FC<ICarCardProps> = ({ car }) => {
           />
         </div>
       </div>
+      <CarDetails
+        isOpen={isOpen}
+        closeModel={() => setIsOpen(false)}
+        car={car}
+      />
     </div>
   );
 };

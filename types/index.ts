@@ -33,3 +33,9 @@ export interface ICarProps {
   transmission: string;
   year: number;
 }
+
+export interface ICarDetailsProps {
+  isOpen: boolean;
+  closeModel: () => void;
+  car: ICarProps;
+}
