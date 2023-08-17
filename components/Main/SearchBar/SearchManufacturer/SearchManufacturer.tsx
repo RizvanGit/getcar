@@ -56,7 +56,24 @@ const SearchManufacturer: FC<ISearchManufacturerProps> = ({
                     }`
                   }
                 >
-                  {item}
+                  {({ active, selected }) => (
+                    <>
+                      <span
+                        className={`block truncate ${selected ? "font-medium" : "font-normal"
+                          }`}
+                      >
+                        {item}
+                      </span>
+                      {selected ? (
+                        <span
+                          className={`absolute inset-y-0 left-0 flex items-center pl-6 ${active ? "text-white" : "text-teal-600"
+                            }`}
+                        >
+                          {`•`}
+                        </span>
+                      ) : null}
+                    </>
+                  )}
                 </Combobox.Option>
               ))}
             </Combobox.Options>
@@ -66,5 +83,5 @@ const SearchManufacturer: FC<ISearchManufacturerProps> = ({
     </div>
   );
 };
-
+//1-11-44
 export default SearchManufacturer;
