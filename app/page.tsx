@@ -1,13 +1,15 @@
 import Image from "next/image";
 import { CarCard, CustomFilter, Hero, SearchBar } from "@/components";
 import { fetchCars } from "@/utils";
+import { fuels, yearsOfProduction as years } from "@/constants";
+import { SearchParams } from "@/types";
 
-export default async function Home({ searchParams }) {
+export default async function Home({ searchParams }: SearchParams) {
   const allCars = await fetchCars({
-    manufacturer: searchParams.manufacturer,
+    manufacturer: searchParams.manufacturer || "",
     year: searchParams.year || 2021,
     fuel: searchParams.fuel || "",
-    limit: searchParams.limi || 10,
+    limit: searchParams.limit || 10,
     model: searchParams.model || "",
   });
 
@@ -20,11 +22,11 @@ export default async function Home({ searchParams }) {
           <h1 className="text-4xl font-extrabold">Car Cataloge</h1>
           <p>Explore the cars you might like</p>
         </div>
-        <div>
+        <div className="home__filters">
           <SearchBar />
           <div className="home__filter-container">
-            <CustomFilter title="fuel" />
-            <CustomFilter title="year" />
+            <CustomFilter title="fuel" options={fuels} />
+            <CustomFilter title="year" options={years} />
           </div>
         </div>
         {!isDataEmpty ? (
@@ -37,7 +39,9 @@ export default async function Home({ searchParams }) {
           </section>
         ) : (
           <div className="home__error-container">
-            <h2 className="text-black text-xl font-bold">Oops, no results.</h2>
+            <h2 className="text-black text-xl font-bold py-6">
+              Oops, no results.
+            </h2>
             <p>{allCars?.message}</p>
           </div>
         )}

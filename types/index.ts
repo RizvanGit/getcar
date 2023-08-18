@@ -10,8 +10,13 @@ export interface ICustomButtonProps {
   isDisabled?: boolean;
 }
 
+export interface IOptionProps {
+  title: string;
+  value: string;
+}
 export interface ICustomFilterProps {
-  title?: string;
+  title: string;
+  options: IOptionProps[];
 }
 
 export interface ISearchManufacturerProps {
@@ -47,3 +52,7 @@ export interface IFilterProps {
   limit: number;
   model: string;
 }
+
+export type SearchParams = {
+  searchParams: Partial<IFilterProps>;
+};

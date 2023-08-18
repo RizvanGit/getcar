@@ -46,10 +46,6 @@ const SearchBar: FC = () => {
   const submitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (manufacturer === "" && model === "") {
-      return alert("Please fill the search bar");
-    }
-
     updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase());
   };
 
