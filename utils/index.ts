@@ -59,3 +59,13 @@ export const updateSearchParams = (type: string, value: string) => {
 
   return newPathname;
 };
+
+export const capitalizeFirstLetter = (string: string) => {
+  if (string === "") return string;
+  let word = string;
+  const firstLetter = word.charAt(0).toUpperCase();
+  const remainingLetters = word.slice(1);
+
+  const result = firstLetter + remainingLetters;
+  return result;
+};

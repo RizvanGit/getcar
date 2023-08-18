@@ -1,17 +1,30 @@
 "use client";
 
 import { FC, Fragment, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Listbox, Transition } from "@headlessui/react";
 import Image from "next/image";
 
 import { ICustomFilterProps } from "@/types";
-import { updateSearchParams } from "@/utils";
+import { capitalizeFirstLetter, updateSearchParams } from "@/utils";
 
 const CustomFilter: FC<ICustomFilterProps> = ({ title, options }) => {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  let optionParam: string | null;
+  if (title === "fuel") {
+    const paramValue = searchParams.get("fuel");
+    optionParam = capitalizeFirstLetter(paramValue ? paramValue : "");
+  } else {
+    const paramValue = searchParams.get("year");
+    optionParam = capitalizeFirstLetter(paramValue ? paramValue : "");
+  }
+  const initState = {
+    title: optionParam ? optionParam : options[0].title,
+    value: optionParam ? optionParam : options[0].value,
+  };
 
-  const [selected, setSelected] = useState(options[0]);
+  const [selected, setSelected] = useState(initState);
   const handleUpdateParams = (e: { title: string; value: string }) => {
     const newPathName = updateSearchParams(title, e.value.toLowerCase());
     router.push(newPathName, { scroll: false });
