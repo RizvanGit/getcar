@@ -97,6 +97,13 @@ const CarDetails: FC<ICarDetailsProps> = ({ isOpen, closeModel, car }) => {
 
                       <div className="mt-3 flex flex-wrap gap-2">
                         {Object.entries(car).map(([key, value]) => {
+                          if (key.toLowerCase() === "transmission") {
+                            if (value === "m") {
+                              value = "manual";
+                            } else {
+                              value = "automatic";
+                            }
+                          }
                           return (
                             <div
                               key={key}
