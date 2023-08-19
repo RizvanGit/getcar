@@ -5,6 +5,7 @@ import Footer from "./Footer/Footer";
 import CustomFilter from "./CustomFilter/CustomFilter";
 import CarCard from "./Main/CarCard/CarCard";
 import CarDetails from "./Main/CarCard/CarDetails/CarDetails";
+import ShowMore from "./Main/CarCard/ShowMode/ShowMode";
 import SearchBar from "./Main/SearchBar/SearchBar";
 import SearchManufacturer from "./Main/SearchBar/SearchManufacturer/SearchManufacturer";
 
@@ -18,4 +19,5 @@ export {
   SearchManufacturer,
   CarCard,
   CarDetails,
+  ShowMore,
 };

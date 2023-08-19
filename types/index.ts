@@ -56,3 +56,8 @@ export interface IFilterProps {
 export type SearchParams = {
   searchParams: Partial<IFilterProps>;
 };
+
+export interface IShowMoreProps {
+  pageNumber: number;
+  isNext: boolean;
+}

@@ -4,7 +4,13 @@ import { FC } from "react";
 import { CustomButton } from "..";
 
 const Hero: FC = () => {
-  const carsExploreHandler = () => { };
+  const carsExploreHandler = () => {
+    const nextSection = document.getElementById("discover");
+
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <div className="hero">
       <div className="flex-1 pt-36 padding-x">
