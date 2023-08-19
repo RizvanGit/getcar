@@ -61,3 +61,8 @@ export interface IShowMoreProps {
   pageNumber: number;
   isNext: boolean;
 }
+
+export interface IAboutProps {
+  isOpen: boolean;
+  closeAbout: () => void;
+}

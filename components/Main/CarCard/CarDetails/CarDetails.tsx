@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Dialog, Transition } from "@headlessui/react";
 
 import { ICarDetailsProps } from "@/types";
-//2-03-00 - car images
+
 const CarDetails: FC<ICarDetailsProps> = ({ isOpen, closeModel, car }) => {
   return (
     <div>
